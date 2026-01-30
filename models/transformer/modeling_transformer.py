@@ -1,17 +1,3 @@
-"""
-Transformer Model
-
-A clean, standalone transformer implementation using only PyTorch.
-No flash-attn or other custom CUDA kernels required.
-
-Features:
-    - Rotary Position Embeddings (RoPE)
-    - Grouped Query Attention (GQA) support
-    - Optional QK normalization
-    - Optional sliding window attention
-    - HuggingFace compatible (PreTrainedModel)
-"""
-
 from __future__ import annotations
 
 import math
