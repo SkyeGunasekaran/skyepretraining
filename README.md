@@ -1,4 +1,12 @@
 # Skye's Pretraining Pipeline
+
+[![Python](https://img.shields.io/badge/python-3.11-blue)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/pytorch-2.0-ee4c2c)](https://pytorch.org/)
+[![CUDA](https://img.shields.io/badge/cuda-12.x-76b900)](https://developer.nvidia.com/cuda-toolkit)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+[![DDP](https://img.shields.io/badge/DDP-torchrun-orange)](https://pytorch.org/docs/stable/elastic/run.html)
+[![W&B](https://img.shields.io/badge/W%26B-enabled-yellow)](https://wandb.ai/)
+
 An efficient, model-agnostic pretraining pipeline for language models. This repository provides a complete experimental workflow, and is highly inspired by the methodology described in `Gated Delta Networks: Improving Mamba2 with Delta Rule`
 
 ## Key Features
