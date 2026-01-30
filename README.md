@@ -89,7 +89,7 @@ This pipeline integrates with Weights & Biases (WandB). To track your runs, upda
 }
 ```
 
-## Star History
+## ⭐ If this helped, please star the repo
 If you find this useful for your research or experiments, please consider starring the repository. It helps other researchers find it, and it’s the easiest way to support continued improvements (more models, better eval coverage, stronger defaults, and more reproducible baselines).
 
 [![Star History Chart](https://api.star-history.com/svg?repos=SkyeGunasekaran/skyepretraining&type=date&legend=top-left)](https://www.star-history.com/#SkyeGunasekaran/skyepretraining&type=date&legend=top-left)
