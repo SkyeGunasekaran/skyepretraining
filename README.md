@@ -67,7 +67,7 @@ torchrun --nproc_per_node=8 train.py --config sample_config.json
         └── configuration_transformer.py
 ```
 ## Logging & Monitoring
-This pipeline integrates with Weights & Biases (WandB). To track your runs, update the logging section in your config. `wandb_project`: Your project name. `wandb_run_name`: Unique identifier for the experiment.
+This pipeline integrates with Weights & Biases (WandB). To track your runs, update the logging section in your config. `wandb_project: #Your project name`. `wandb_run_name: #Unique identifier for the experiment`.
 
 ## Citation
 ```
