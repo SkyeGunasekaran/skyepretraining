@@ -1,10 +1,3 @@
-"""
-Transformer Configuration
-
-A simple, standalone configuration class for transformer models.
-Compatible with HuggingFace's PretrainedConfig.
-"""
-
 from transformers.configuration_utils import PretrainedConfig
 
 
