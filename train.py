@@ -1,35 +1,4 @@
 #!/usr/bin/env python3
-"""
-Generic HuggingFace Model Training Pipeline
-
-A clean, model-agnostic training script optimized for distributed training.
-Works with any HuggingFace-compatible model including FLA models, standard
-transformers, Mamba variants, etc.
-
-Usage:
-    # Single GPU
-    python train.py --model_name fla-hub/gla-1.3B-100B --data_dir ./data
-
-    # Multi-GPU with torchrun
-    torchrun --nproc_per_node=2 train.py --model_name fla-hub/gla-1.3B-100B
-
-    # From local config
-    python train.py --model_path ./my_model --config_path ./my_config.json
-
-    # Resume from checkpoint
-    torchrun --nproc_per_node=2 train.py --resume checkpoints/latest
-
-Features:
-    - Works with any HuggingFace AutoModelForCausalLM compatible model
-    - Distributed Data Parallel (DDP) support
-    - Mixed precision training (bf16/fp16/fp32)
-    - Gradient checkpointing and accumulation
-    - Cosine learning rate schedule with warmup
-    - Rolling checkpoints with atomic writes
-    - WandB logging integration
-    - Efficient sharded data loading
-"""
-
 from __future__ import annotations
 
 import json
@@ -69,7 +38,7 @@ class TrainingConfig:
     """
     Training hyperparameters.
 
-    Defaults follow best practices from recent language model papers:
+    This follows the methodology proposed by Songlin Yang:
     - Cosine learning rate schedule
     - AdamW optimizer with standard betas
     - Gradient clipping
@@ -539,7 +508,7 @@ def get_model_and_config(
     """
     Load or create a model and config.
 
-    Supports multiple loading strategies:
+    Supports loading strategies:
     1. model_config dict with 'source': 'local_class' - Load from local Python files
     2. model_config dict with 'source': 'huggingface' - Load from HF hub
     3. model_name: Load from HuggingFace hub (shorthand)
