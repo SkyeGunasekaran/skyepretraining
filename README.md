@@ -9,6 +9,17 @@
 
 An efficient, model-agnostic pretraining pipeline for language models. This repository provides a complete experimental workflow, and is highly inspired by the methodology described in [`Gated Delta Networks: Improving Mamba2 with Delta Rule`](https://arxiv.org/pdf/2412.06464)
 
+## Why this repository?
+
+Most open-source pretraining codebases fall into one of two buckets:
+
+1. **Toy pipelines** that are great for learning, but fall apart when you try to run serious ablations (slow input pipelines, unstable checkpointing, limited distributed support).
+2. **Industry-scale stacks** optimized for hundreds of GPUs, which can be overkill (and painful to modify) when you’re trying to iterate quickly on new architectures or training recipes.
+
+This repository is the **middle ground**: a practical, research-friendly pretraining pipeline that’s fast, modular, and scalable enough to support **meaningful scaling and rigorous ablation studies**—without requiring a massive cluster. The goal is to let you move from **idea → experiment → benchmark** quickly, while keeping the training stack understandable and hackable.
+
+If you’re iterating on model architecture, optimizer choices, data mixtures, or training dynamics and you want results that hold up beyond tiny runs, this repo is designed for you.
+
 ## Key Features
 - **Custom Model Support**: Seamlessly switch between local Python implementations and HuggingFace Hub models via sample_config.json.
 - **Performance Optimized**: Built-in support for FlashAttention, BF16 mixed precision, and Fused AdamW.
