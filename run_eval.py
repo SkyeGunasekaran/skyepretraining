@@ -1,15 +1,4 @@
 #!/usr/bin/env python3
-"""
-Fast LM Evaluation for Custom Transformers
-
-Evaluates a HuggingFace-compatible model on standard benchmarks using 
-EleutherAI's lm-evaluation-harness.
-
-Example:
-    python eval.py --checkpoint checkpoints/small --batch-size 64
-    python eval.py --checkpoint ./model --tasks hellaswag arc_easy --device cpu
-"""
-
 import argparse
 import json
 import logging
@@ -22,7 +11,7 @@ import torch
 from lm_eval import evaluator
 from lm_eval.models.huggingface import HFLM
 
-# Custom model imports (swap these for AutoModel if using standard HF models)
+# Custom model imports 
 try:
     from models.transformer.configuration_transformer import TransformerConfig
     from models.transformer.modeling_transformer import TransformerForCausalLM
@@ -132,8 +121,7 @@ def load_model(checkpoint_path: str, dtype_str: str, device: str, use_auto: bool
             checkpoint_path,
             config=config,
             torch_dtype=torch_dtype,
-            device_map="auto" if device == "cuda" else None,
-            low_cpu_mem_usage=True
+            device_map="auto" if device == "cuda" else None
         )
         if device != "cuda":
             model = model.to(device)
@@ -222,7 +210,7 @@ def main():
         logger.info(f"Full results saved to {args.output}")
         
     except torch.cuda.OutOfMemoryError:
-        logger.error("CUDA OOM! Reduce --batch-size (try 64, 32, or 16)")
+        logger.error("CUDA OOM! Reduce batch-size by 1/2")
         sys.exit(1)
     except Exception as e:
         logger.error(f"Evaluation failed: {e}")
