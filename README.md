@@ -16,21 +16,21 @@ An efficient, model-agnostic pretraining pipeline for language models. This repo
 - **Atomic Checkpointing**: Rolling checkpoint system with atomic writes to prevent corruption during hardware failures.
 - **Industry Standard Eval**: Integrated with lm-evaluation-harness for zero-shot benchmarking on HellaSwag, ARC, and more.
 
-## Getting Started
+# Getting Started
 
-### Requirements
+## Requirements
 ```
 pip install torch transformers datasets wandb lm-eval numpy 
 ```
 
-### Data Preparation 
+## Data Preparation 
 Use prepare_fineweb.py to tokenize and shard the FineWeb-EDU dataset. This script generates memory-mapped .bin files for high-speed streaming during training.
 ```
 # Process 10B tokens with 32 CPU workers
 python prepare_fineweb.py --tokens 10e9 --output ./data --workers 32
 ```
 
-### Configuration
+## Configuration
 The sample_config.json acts as the single source of truth for your experiments. 
 
 | Section | Key Parameters | Description |
@@ -43,7 +43,7 @@ The sample_config.json acts as the single source of truth for your experiments.
 | **Logging** | `wandb_project`, `eval_interval` | Controls experiment tracking via Weights & Biases and the frequency of validation runs. |
 | **System** | `num_workers`, `pin_memory` | Handles hardware-level optimizations for data loading efficiency and reproducibility. |
 
-### Training
+## Training
 The pipeline supports two primary execution modes. All hyperparameters are managed via the configuration file.
 
 ```
@@ -55,7 +55,7 @@ torchrun --nproc_per_node=8 train.py --config sample_config.json
 
 *Note: Effective Batch Size = batch_size × gradient_accumulation_steps × world_size.*
 
-### Project Structure
+## Project Structure
 ```
 ├── train.py                # Main DDP training loop & logic
 ├── prepare_fineweb.py      # Data streaming and tokenization utility
@@ -66,10 +66,10 @@ torchrun --nproc_per_node=8 train.py --config sample_config.json
         ├── modeling_transformer.py
         └── configuration_transformer.py
 ```
-### Logging & Monitoring
+## Logging & Monitoring
 This pipeline integrates with Weights & Biases (WandB). To track your runs, update the logging section in your config. `wandb_project`: Your project name. `wandb_run_name`: Unique identifier for the experiment.
 
-### Citation
+## Citation
 ```
 @software{,
   author = {Skye Gunasekaran},
@@ -77,3 +77,7 @@ This pipeline integrates with Weights & Biases (WandB). To track your runs, upda
   url = {github.com/SkyeGunasekaran/skyepretraining},
 }
 ```
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=SkyeGunasekaran/skyepretraining&type=date&legend=top-left)](https://www.star-history.com/#SkyeGunasekaran/skyepretraining&type=date&legend=top-left)
