@@ -7,7 +7,7 @@
 [![DDP](https://img.shields.io/badge/DDP-torchrun-orange)](https://pytorch.org/docs/stable/elastic/run.html)
 [![W&B](https://img.shields.io/badge/W%26B-enabled-yellow)](https://wandb.ai/)
 
-An efficient, model-agnostic pretraining pipeline for language models. This repository provides a complete experimental workflow, and is highly inspired by the methodology described in `Gated Delta Networks: Improving Mamba2 with Delta Rule`
+An efficient, model-agnostic pretraining pipeline for language models. This repository provides a complete experimental workflow, and is highly inspired by the methodology described in [`Gated Delta Networks: Improving Mamba2 with Delta Rule`](https://arxiv.org/pdf/2412.06464)
 
 ## Key Features
 - **Custom Model Support**: Seamlessly switch between local Python implementations and HuggingFace Hub models via sample_config.json.
