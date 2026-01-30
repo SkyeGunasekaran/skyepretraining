@@ -1,13 +1,4 @@
 #!/usr/bin/env python3
-"""
-fineweb-edu Preprocessing Script
-
-Features:
-    - Produces exactly two files: train.bin and val.bin.
-    - Accurate token counting.
-    - uint16 for efficient storage. 
-"""
-
 import os
 import argparse
 import multiprocessing as mp
