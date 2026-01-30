@@ -1,0 +1,76 @@
+{
+  "model": {
+    "source": "local_class",
+    "module": "models/transformer/modeling_transformer",
+    "class_name": "TransformerForCausalLM",
+    "config_module": "models/transformer/configuration_transformer",
+    "config_class_name": "TransformerConfig",
+    "from_pretrained": false,
+    "pretrained_path": null,
+    "config_overrides": {
+      "vocab_size": 32000,
+      "hidden_size": 768,
+      "num_hidden_layers": 12,
+      "num_heads": 12,
+      "num_kv_heads": null,
+      "qkv_bias": false,
+      "qk_norm": true,
+      "window_size": null,
+      "rope_theta": 10000.0,
+      "max_position_embeddings": 4096,
+      "hidden_ratio": 4,
+      "intermediate_size": null,
+      "hidden_act": "swish",
+      "initializer_range": 0.02,
+      "norm_eps": 1e-6,
+      "use_cache": false,
+      "tie_word_embeddings": true
+    }
+  },
+  "tokenizer": {
+    "name_or_path": "NousResearch/Llama-2-7b-hf",
+    "save_with_model": true
+  },
+  "data": {
+    "data_dir": "./data",
+    "train_prefix": "train",
+    "val_prefix": "val",
+    "seq_length": 4096
+  },
+  "training": {
+    "batch_size": 64,
+    "gradient_accumulation_steps": 1,
+    "gradient_checkpointing": false,
+    "learning_rate": 4e-4,
+    "min_lr": 4e-5,
+    "warmup_tokens": 0.026,
+    "max_tokens": 2.6,
+    "lr_decay_style": "cosine",
+    "weight_decay": 0.1,
+    "beta1": 0.9,
+    "beta2": 0.95,
+    "grad_clip": 1.0,
+    "dtype": "bfloat16",
+    "compile_model": false,
+    "fused_adamw": true
+  },
+  "checkpointing": {
+    "checkpoint_dir": "checkpoints/transformer/small",
+    "checkpoint_interval": 2000,
+    "save_final_model": true
+  },
+  "logging": {
+    "log_interval": 10,
+    "eval_interval": 500,
+    "eval_iters": 100,
+    "wandb_project": null,
+    "wandb_run_name": null
+  },
+  "system": {
+    "seed": 42,
+    "num_workers": 4,
+    "prefetch_factor": 4,
+    "pin_memory": true,
+    "persistent_workers": true
+  }
+}
