@@ -18,8 +18,6 @@ Most open-source pretraining codebases fall into one of two buckets:
 
 This repository is the **middle ground**: a practical, research-friendly pretraining pipeline that’s fast, modular, and scalable enough to support **meaningful scaling and rigorous ablation studies**—without requiring a massive cluster. The goal is to let you move from **idea → experiment → benchmark** quickly, while keeping the training stack understandable and hackable.
 
-If you’re iterating on model architecture, optimizer choices, data mixtures, or training dynamics and you want results that hold up beyond tiny runs, this repo is designed for you.
-
 ## Key Features
 - **Custom Model Support**: Seamlessly switch between local Python implementations and HuggingFace Hub models via sample_config.json.
 - **Performance Optimized**: Built-in support for FlashAttention, BF16 mixed precision, and Fused AdamW.
